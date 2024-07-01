@@ -12,11 +12,13 @@ function AuthProvider(props) {
     user: null,
   });
 
-  const login = () => {
+  const login = async (data) => {
     // 🐨 Todo: Exercise #4
     //  ให้เขียน Logic ของ Function `login` ตรงนี้
     //  Function `login` ทำหน้าที่สร้าง Request ไปที่ API POST /login
     //  ที่สร้างไว้ด้านบนพร้อมกับ Body ที่กำหนดไว้ในตารางที่ออกแบบไว้
+    const Login = await axios.post("http://localhost:4000/login", data);
+    console.log(Login);
   };
 
   const register = async (data) => {
