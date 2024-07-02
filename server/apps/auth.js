@@ -2,6 +2,7 @@ import { Router } from "express";
 import { db } from "../utils/db.js";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
+import { protect } from "../middlewares/protect.js";
 import "dotenv/config";
 
 const authRouter = Router();
@@ -48,7 +49,7 @@ authRouter
       { id: user._id, firstname: user.firstName, last: user.lastName },
       process.env.SECRET_KEY,
       {
-        expiresIn: "900000",
+        expiresIn: "100000",
       }
     );
 
@@ -56,5 +57,7 @@ authRouter
       message: "login successfully",
       token,
     });
-  });
+  })
+  .use(protect);
+
 export default authRouter;
