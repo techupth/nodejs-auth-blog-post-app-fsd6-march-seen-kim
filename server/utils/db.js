@@ -1,6 +1,6 @@
 import { MongoClient } from "mongodb";
 
-const connectionString = "mongodb://localhost:27017";
+const connectionString = "mongodb://localhost:27017/";
 
 export const client = new MongoClient(connectionString, {
   useUnifiedTopology: true,
